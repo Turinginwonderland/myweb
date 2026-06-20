@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>吴卓鸿 | 个人简历静态网站</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="profile-section">
+            <div class="avatar-container">
+                <img src="照片吴卓鸿.jpg" alt="吴卓鸿的头像" class="avatar">
+            </div>
+            <div class="profile-info">
+                <h1 class="name">吴卓鸿</h1>
+                <p class="tagline">大数据管理与应用 | 算法开发</p>
+                <p class="institution">北京工业大学 · 本科</p>
+            </div>
+        </div>
+
+        <nav class="nav-container">
+            <ul class="nav-list">
+                <li class="nav-item active" data-target="about">
+                    <span class="nav-bullet"></span>
+                    <a href="#about">关于我</a>
+                </li>
+                <li class="nav-item" data-target="education">
+                    <span class="nav-bullet"></span>
+                    <a href="#education">求学生涯</a>
+                </li>
+                <li class="nav-item" data-target="projects">
+                    <span class="nav-bullet"></span>
+                    <a href="#projects">项目经历</a>
+                </li>
+                <li class="nav-item" data-target="activities">
+                    <span class="nav-bullet"></span>
+                    <a href="#activities">课外与活动</a>
+                </li>
+                <li class="nav-item" data-target="skills">
+                    <span class="nav-bullet"></span>
+                    <a href="#skills">专业技能</a>
+                </li>
+                <li class="nav-item" data-target="contact">
+                    <span class="nav-bullet"></span>
+                    <a href="#contact">联系方式</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+
+    <main class="main-content">
+        
+        <section id="about" class="content-section">
+            <h2 class="section-title">关于我</h2>
+            <div class="section-body">
+                <p>您好！我是吴卓鸿，目前就读于北京工业大学大数据管理与应用专业。我扎根于数学与算法，在数据结构、高等数学及线性代数方面拥有坚实的基础（连续两学年绩点拔尖，均分93+）。</p>
+                <p>我热衷于利用Python、机器学习算法解决实际的数据科学与社会问题，曾在金融反欺诈领域取得阿里云天池平台前100名的佳绩。同时，我对哲学（如《中国哲学简史》研读）、凸优化理论的直观可视化以及多学科交叉研究充满浓厚兴趣，乐于将复杂的技术与深刻的思想以最直观的方式呈现出来。</p>
+            </div>
+        </section>
+
+        <section id="education" class="content-section">
+            <h2 class="section-title">求学生涯</h2>
+            <div class="section-body">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <span class="school">北京工业大学</span>
+                        <span class="date">2023.09 - 2027.05 (预计毕业)</span>
+                    </div>
+                    <div class="timeline-sub">本科 · 大数据管理与应用</div>
+                    <div class="details-block">
+                        <strong>主修课程：</strong> 基础数学英语课，Java，Python，MySQL数据库，企业级Web应用与开发，信息系统设计与分析，面向对象编程，数据库技术，数据结构，管理信息系统，商务大数据概论分析等。
+                    </div>
+                    <div class="details-block">
+                        <strong>擅长科目：</strong> 高等数学、线性代数、数据结构（具备极强的数理逻辑与算法底层功底）
+                    </div>
+                    <div class="details-block">
+                        <strong>荣誉奖项：</strong>
+                        <ul class="award-list">
+                            <li>🏆 2024-2025学年 校级学习优秀奖（学年平均分：<strong>92.4</strong>）</li>
+                            <li>🏆 2025-2026学年 校级学习优秀奖（学年平均分：<strong>93.0</strong>）</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="content-section">
+            <h2 class="section-title">项目经历</h2>
+            <div class="section-body">
+                
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">金融欺诈反诈骗算法开发</span>
+                        <span class="project-role">算法核心开发者</span>
+                    </div>
+                    <p class="project-desc">基于Python语言，构建了包含 LightGBM (LGBM) 等混合模型算法的金融反欺诈高精度识别系统。</p>
+                    <ul class="project-bullets">
+                        <li>使用 <strong>Grid Search (网格搜索)</strong> 进行精细化超参数调优，全面提升模型泛化性能。</li>
+                        <li>利用 <strong>集成投票 (Ensemble Voting)</strong> 机制优化决策结果，有效降低误判率与漏判率。</li>
+                        <li>在<strong>阿里云天池平台</strong>权威竞赛中拿下 <strong>97 的高分</strong>，F1-score 达到 <strong>0.97</strong>，综合排名位居全网<strong>前 100 位</strong>。</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">细粒度中文仇恨识别算法</span>
+                        <span class="project-role">算法独立开发者</span>
+                    </div>
+                    <p class="project-desc">基于Python语言和广义线性模型（GLM）/大语言模型相关架构，对中文社区网络环境下的不友善言论及细粒度仇恨文本进行精准分类与识别，最终实验结果<strong>显著高于 Baseline（基线模型）</strong>。</p>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">旅游软件评论分析平台搭建</span>
+                        <span class="project-role">核心预处理与问卷设计</span>
+                    </div>
+                    <p class="project-desc">设计并搭建了一个面向句子级情感分类的<strong>三支卷积神经网络 (3-Branch CNN)</strong> 旅游评论分析平台。</p>
+                    <ul class="project-bullets">
+                        <li>独立承担并完成了文本清洗、分词、停用词过滤及向量化等全部核心<strong>数据预处理任务</strong>。</li>
+                        <li>辅助团队精心设计了基于北京旅游目的地的专业调查问卷，为平台提供了可靠的实证数据支持。</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="activities" class="content-section">
+            <h2 class="section-title">课外与活动</h2>
+            <div class="section-body">
+                
+                <div class="activity-block">
+                    <h3>课外经历</h3>
+                    <div class="activity-item">
+                        <div class="activity-header">
+                            <span class="activity-name">图书馆《中国哲学简史》阅读课</span>
+                            <span class="activity-role">项目主导者</span>
+                        </div>
+                        <p class="activity-desc">积极主导并协助校内经典阅读课的深度研讨，负责课程核心哲学讨论的推进以及导读资料的系统化编纂与发放。</p>
+                    </div>
+                </div>
+
+                <div class="activity-block" style="margin-top: 25px;">
+                    <h3>个人活动与社区影响力</h3>
+                    <ul class="project-bullets">
+                        <li><strong>学术科普：</strong> 主导并独立完成了关于<strong>凸优化（Convex Optimization）的直观几何演示视频</strong>，在Bilibili（B站）上收获近千次播放，广受好评。</li>
+                        <li><strong>内容创作：</strong> 在知名游戏/数码社区“小黑盒”上发布优质原创内容，单篇点赞量破百，浏览量达数千次。</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="skills" class="content-section">
+            <h2 class="section-title">专业技能</h2>
+            <div class="section-body">
+                <table class="skills-table">
+                    <tr>
+                        <td class="skill-label">编程语言</td>
+                        <td>Java · Python (熟练掌握数据科学与机器学期生态) · C语言 · R语言</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-label">软件与工具</td>
+                        <td>MATLAB (科学计算) · SQL (MySQL 数据库管理) · EndNote (文献管理)</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-label">语言能力</td>
+                        <td>英语 (高分通过大学英语四级 CET-4 / 大学英语六级 CET-6)</td>
+                    </tr>
+                    <tr>
+                        <td class="skill-label">兴趣特长</td>
+                        <td>吉他演奏 · 钢琴 · 凸优化直观几何可视化 · 哲学文本研读</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2 class="section-title">联系方式</h2>
+            <div class="section-body">
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <span class="contact-icon">📱</span>
+                        <div class="contact-info">
+                            <span class="contact-label">手机号码</span>
+                            <span class="contact-value">15101085737</span>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-icon">✉️</span>
+                        <div class="contact-info">
+                            <span class="contact-label">电子邮箱</span>
+                            <span class="contact-value"><a href="mailto:15101085737@163.com">15101085737@163.com</a></span>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <span class="contact-icon">📍</span>
+                        <div class="contact-info">
+                            <span class="contact-label">生源/籍贯</span>
+                            <span class="contact-value">北京市海淀区</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
