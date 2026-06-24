@@ -1,0 +1,431 @@
+/* ================= 1. 全局初始化与变量 ================= */
+:root {
+    --sidebar-width: 280px;
+    --bg-light: #fafafa;
+    --text-main: #333333;
+    --text-muted: #777777;
+    --accent-blue: #2f88ff;
+    --border-color: #e5e5e5;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans CJK SC", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* 启用原生平滑滚动 */
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    background-color: #ffffff;
+    line-height: 1.6;
+    display: block; /* 避免 WeasyPrint 或老旧浏览器中的 Flex 冲突 */
+}
+
+/* ================= 2. 固定定位侧边栏 ================= */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background-color: var(--bg-light);
+    border-right: 1px solid var(--border-color);
+    padding: 40px 24px;
+    overflow-y: auto;
+    z-index: 100;
+}
+
+/* 头像与基本信息 */
+.profile-section {
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 35px;
+}
+
+.avatar-container {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 15px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background-color: #fff;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    /* 核心修改点： */
+    object-fit: cover;      /* 保持比例并覆盖容器，图片可能会被裁剪 */
+    /* 或者如果您想让图片完整显示，不裁剪，可以改为： */
+    /* 或者如果您想让图片完全拉伸以填满（通常不推荐，会变形）： */
+    /* object-fit: fill; */
+    
+    /* 增加这一行，让图片在被裁剪时以“中心点”为基准，而不是默认的左上角 */
+    object-position: center center; 
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+}
+
+.tagline {
+    font-size: 12px;
+    color: var(--accent-blue);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.institution {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* 导航栏列表（高度还原图片风格） */
+.nav-container {
+    padding-left: 10px;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-item {
+    position: relative;
+    padding: 10px 0 10px 28px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+/* 灰色圆点 */
+.nav-bullet {
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: #cccccc;
+    border-radius: 50%;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.nav-item a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+    display: block;
+}
+
+/* 悬停效果 */
+.nav-item:hover a {
+    color: #1a1a1a;
+}
+
+/* 激活高亮状态（参考图中的蓝色大革命时期样式） */
+.nav-item.active a {
+    color: var(--accent-blue) !important;
+    font-weight: bold;
+}
+
+.nav-item.active .nav-bullet {
+    background-color: var(--accent-blue);
+    transform: translateY(-50%) scale(1.3); /* 激活时圆点略微放大 */
+}
+
+/* 左侧蓝色指示箭头（可选增强：如需完全对齐图片，可在激活项左侧做标记） */
+.nav-item.active::before {
+    content: "";
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 5px solid var(--accent-blue);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+
+/* ================= 3. 右侧正式内容区域 ================= */
+.main-content {
+    margin-left: var(--sidebar-width);
+    padding: 60px 8% 80px 8%;
+    max-width: 1200px;
+}
+
+/* 板块通用样式 */
+.content-section {
+    padding-bottom: 40px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.content-section:last-of-type {
+    border-bottom: none;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111111;
+    margin-bottom: 24px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+/* 标题下方的精致蓝色装饰短线 */
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 3px;
+    background-color: var(--accent-blue);
+    border-radius: 2px;
+}
+
+.section-body {
+    font-size: 15px;
+    color: #444444;
+    text-align: justify;
+}
+
+.section-body p {
+    margin-bottom: 16px;
+    text-indent: 2em; /* 段落首行缩进 */
+}
+
+/* ================= 4. 求学生涯板块 ================= */
+.timeline-item {
+    background: #fdfdfd;
+    border-left: 3px solid var(--border-color);
+    padding: 5px 0 10px 20px;
+    margin-left: 5px;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.school {
+    font-size: 18px;
+}
+
+.date {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.timeline-sub {
+    font-size: 14px;
+    color: var(--accent-blue);
+    margin: 4px 0 15px 0;
+    font-weight: 500;
+}
+
+.details-block {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: #555555;
+}
+
+.award-list {
+    list-style: none;
+    margin-top: 6px;
+    padding-left: 0;
+}
+
+.award-list li {
+    margin-bottom: 4px;
+}
+
+
+/* ================= 5. 项目经历与活动板块 ================= */
+.project-item {
+    margin-bottom: 30px;
+    background: #fcfcfc;
+    border: 1px solid #f0f0f0;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.project-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111111;
+}
+
+.project-role {
+    font-size: 13px;
+    background-color: #e6f2ff;
+    color: var(--accent-blue);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.project-desc {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.project-bullets, .activity-block ul {
+    padding-left: 20px;
+    font-size: 14px;
+    color: #555555;
+}
+
+.project-bullets li, .activity-block ul li {
+    margin-bottom: 6px;
+}
+
+.activity-block h3 {
+    font-size: 16px;
+    color: #222;
+    margin-bottom: 12px;
+    border-left: 3px solid #666;
+    padding-left: 8px;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.activity-desc {
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* ================= 6. 专业技能表格 ================= */
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.skills-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 14px;
+}
+
+.skill-label {
+    font-weight: 600;
+    color: #222222;
+    width: 120px;
+    background-color: #fafafa;
+}
+
+
+/* ================= 7. 联系方式卡片网格 ================= */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.contact-icon {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-label {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.contact-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    margin-top: 2px;
+}
+
+.contact-value a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+.contact-value a:hover {
+    text-decoration: underline;
+}
+
+
+/* ================= 8. 响应式布局（适配手机端） ================= */
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        padding: 30px 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .nav-container {
+        display: none; /* 移动端隐藏侧边固定的微型导航窗口 */
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 30px 20px;
+    }
+    
+    .timeline-header, .project-header, .activity-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .date, .project-role {
+        margin-top: 2px;
+    }
+}
